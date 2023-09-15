@@ -6,10 +6,11 @@
 
 body {
 	background: #050505;
+	height: 100vh;
 }
 
 .container {
-	height: 94vh;
+	height: 94%;
 	width: 96%;
 	margin: 2% auto;
 	overflow: hidden;
@@ -43,19 +44,35 @@ input {
 	object-fit: cover;
 }
 
-#r1:checked.s1 {
+#r1:checked~.slides>.s1 {
 	margin-left: 0;
 }
 
-#r2:checked~.s1 {
+#r2:checked~.slides>.s1 {
 	margin-left: -25%;
 }
 
-#r3:checked~.s1 {
+#r3:checked~.slides>.s1 {
 	margin-left: -50%;
 }
 
-#r4:checked~.s1 {
+#r4:checked~.slides>.s1 {
+	margin-left: -75%;
+}
+
+#r1:checked~.panel>.texts>.texts__container>.texts__wrap>.texts__text_1 {
+	margin-left: 0;
+}
+
+#r2:checked~.panel>.texts>.texts__container>.texts__wrap>.texts__text_1 {
+	margin-left: -25%;
+}
+
+#r3:checked~.panel>.texts>.texts__container>.texts__wrap>.texts__text_1 {
+	margin-left: -50%;
+}
+
+#r4:checked~.panel>.texts>.texts__container>.texts__wrap>.texts__text_1 {
 	margin-left: -75%;
 }
 
@@ -67,7 +84,7 @@ input {
 	justify-content: space-between;
 }
 
-.text {
+.texts {
 	width: 66%;
 	height: 100%;
 	display: flex;
@@ -75,11 +92,27 @@ input {
 	background: gray;
 }
 
-.text__container {
+.texts__container {
 	width: 100%;
 	background: yellow;
 	height: 2.5rem;
-	margin-top: 4.3%;
+	margin-top: 2rem;
+}
+
+.texts__wrap {
+	width: 400%;
+	height: 100%;
+	overflow: hidden;
+	display: flex;
+
+}
+
+.texts__text {
+	display: flex;
+	width: 25%;
+	height: 100%;
+	align-items: center;
+	transition: all 0.6s ease;
 }
 
 .navigation {
@@ -94,7 +127,7 @@ input {
 	width: 10rem;
 	background: yellow;
 	height: 2.5rem;
-	margin-top: 10%;
+	margin-top: 2rem;
 	display: flex;
 }
 
@@ -112,13 +145,75 @@ input {
 }
 
 .navigation__button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	width: 60%;
 	height: 60%;
-	background: sienna;
+	background: #71ABFE;
 	border-radius: 50%;
 	transition: all 0.5s;
 }
 
 .navigation__control:hover>.navigation__button {
 	background: #FFFFFF;
+}
+
+.button_checked {
+	width: 70%;
+	height: 70%;
+	background: transparent;
+	border-radius: 50%;
+}
+
+#r1:checked~.panel>.navigation>.navigation__container>.navigation__control_1>.navigation__button>.button_checked {
+	background: #050505;
+}
+
+#r2:checked~.panel>.navigation>.navigation__container>.navigation__control_2>.navigation__button>.button_checked {
+	background: #050505;
+}
+
+#r3:checked~.panel>.navigation>.navigation__container>.navigation__control_3>.navigation__button>.button_checked {
+	background: #050505;
+}
+
+#r:checked~.panel>.navigation>.navigation__container>.navigation__control_4>.navigation__button>.button_checked {
+	background: #050505;
+}
+
+@media all and (max-width: 48em) {
+	.panel {
+		align-items: center;
+		flex-direction: column;
+		flex-flow: column-reverse;
+	}
+
+	.texts {
+		width: 100%;
+		/* height: 50%; */
+	}
+
+	.texts__container {
+		margin-top: 1rem;
+
+	}
+
+	.texts__text {
+		justify-content: center;
+	}
+
+	.navigation {
+		width: 100%;
+		height: 50%;
+		justify-content: center;
+	}
+
+	.navigation__container {
+		width: 10rem;
+		background: yellow;
+		height: 2.5rem;
+		margin-top: 1rem;
+		display: flex;
+	}
 }
